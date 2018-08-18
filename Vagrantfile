@@ -66,13 +66,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     curl -s https://packagecloud.io/install/repositories/sensu/nightly/script.deb.sh | sudo bash
     sudo apt-get install -y sensu-backend sensu-cli sensu-agent
-    sudo mv /etc/sensu/backend.yml.example /etc/sensu/backend.yml
-    sudo mv /etc/sensu/agent.yml.example /etc/sensu/agent.yml
-    # add the "ruby-grpc" subscription to agent config (or copy from repo)
+    sudo cp /shim/sensu/backend.yml.example /etc/sensu/backend.yml
+    sudo cp /shim/sensu/agent.yml /etc/sensu/agent.yml
+    sudo chown sensu:sensu /etc/sensu/*.yml
     sudo service sensu-backend start
     sudo service sensu-agent start
     /usr/bin/sensuctl configure --url http://127.0.0.1:8080  --password P@ssw0rd! --organization default --environment default --username admin -n
-    # start the ruby-grpc handler with nohup: bundle console from /shim dir
+    sudo gem install bundler
+    cd /shim
+    bundle install
     sensuctl extension register ruby-grpc http://127.0.0.1:50051
     sensuctl create -f /shim/sensu/check.json
   SHELL

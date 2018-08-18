@@ -4,7 +4,7 @@
     "command": "echo check output && exit 0",
     "environment": "default",
     "handlers": [
-      "ruby-grpc"
+      "filtered-cat"
     ],
     "high_flap_threshold": 0,
     "interval": 5,
@@ -14,7 +14,7 @@
     "publish": true,
     "runtime_assets": [],
     "subscriptions": [
-      "ruby-grpc"
+      "default"
     ],
     "proxy_entity_id": "",
     "check_hooks": [
@@ -37,5 +37,19 @@
     "round_robin": false,
     "output_metric_format": "",
     "output_metric_handlers": []
+  }
+}
+{
+  "type": "Handler",
+  "spec": {
+    "name": "filtered-cat",
+    "type": "pipe",
+    "command": "cat",
+    "timeout": 0,
+    "handlers": [],
+    "filters": ["ruby-grpc"],
+    "env_vars": [],
+    "environment": "default",
+    "organization": "default"
   }
 }
