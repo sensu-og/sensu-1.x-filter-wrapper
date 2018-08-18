@@ -22,6 +22,10 @@ module MaiOgi
       puts filter_event_request.event.timestamp
       #puts filter_event_request.event.entity.inspect
       #puts filter_event_request.event.check.inspect
+
+      # Define your 1.x filtering logic here, and return the appropriate
+      # FilterEventResponse to 2.x.
+      #
       # Note that any exceptions raised here are swallowed by gRPC and sent to
       # sensu-backend as an unknown error. They will show in the sensu-backend
       # logs as 'rpc error: code = Unknown desc = no reason given'
