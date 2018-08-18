@@ -65,17 +65,17 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     curl -s https://packagecloud.io/install/repositories/sensu/nightly/script.deb.sh | sudo bash
-    sudo apt-get install -y sensu-backend sensu-cli sensu-agent
-    sudo cp /shim/sensu/backend.yml.example /etc/sensu/backend.yml
-    sudo cp /shim/sensu/agent.yml /etc/sensu/agent.yml
+    sudo apt-get install -y sensu-backend sensu-cli sensu-agent ruby
+    sudo cp /shim/sensu/backend.yml /etc/sensu/
+    sudo cp /shim/sensu/agent.yml /etc/sensu/
     sudo chown sensu:sensu /etc/sensu/*.yml
     sudo service sensu-backend start
     sudo service sensu-agent start
-    /usr/bin/sensuctl configure --url http://127.0.0.1:8080  --password P@ssw0rd! --organization default --environment default --username admin -n
     sudo gem install bundler
     cd /shim
     bundle install
-    sensuctl extension register ruby-grpc http://127.0.0.1:50051
+    /usr/bin/sensuctl configure --url http://127.0.0.1:8080  --password P@ssw0rd! --organization default --environment default --username admin -n
+    sensuctl extension register ruby-grpc 127.0.0.1:50051
     sensuctl create -f /shim/sensu/check.json
   SHELL
 end

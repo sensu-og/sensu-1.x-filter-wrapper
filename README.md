@@ -14,12 +14,13 @@ vagrant ssh -c 'cd /shim && bundle console'
 ```
 `bundle console` imports the gem which in turn starts the gRPC service on port
 50051. The gRPC service is defined in lib/mai-ogi/server.rb, and uses handlers
-defined in lib/mai-ogi/extension_server.rb.
+defined in lib/mai-ogi/extension_server.rb. Hit Ctrl+C twice to stop the gRPC
+service.
 
 ### Hack on the filter
 
 Edit code in the `filter_event` method of lib/mai-ogi/extension-server.rb.
-Further details are provided in the comments.
+Further details are provided in the comments of the filter_event method.
 
 ### Watch the backend logs
 
