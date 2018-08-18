@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "extension_server"
+require_relative "extension_server"
 
 module MaiOgi
   # gRPC server

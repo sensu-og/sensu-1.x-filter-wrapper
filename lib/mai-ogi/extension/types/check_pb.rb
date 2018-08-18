@@ -3,9 +3,9 @@
 
 require 'google/protobuf'
 
-require 'asset_pb'
-require 'hook_pb'
-require 'time_window_pb'
+require_relative 'asset_pb'
+require_relative 'hook_pb'
+require_relative 'time_window_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sensu.types.CheckRequest" do
     optional :config, :message, 1, "sensu.types.CheckConfig"

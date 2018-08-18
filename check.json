@@ -1,0 +1,41 @@
+{
+  "type": "CheckConfig",
+  "spec": {
+    "command": "echo check output && exit 0",
+    "environment": "default",
+    "handlers": [
+      "ruby-grpc"
+    ],
+    "high_flap_threshold": 0,
+    "interval": 5,
+    "low_flap_threshold": 0,
+    "name": "passing-interval",
+    "organization": "default",
+    "publish": true,
+    "runtime_assets": [],
+    "subscriptions": [
+      "ruby-grpc"
+    ],
+    "proxy_entity_id": "",
+    "check_hooks": [
+      {
+        "0": [
+          "passing"
+        ]
+      },
+      {
+        "1": [
+          "failing"
+        ]
+      }
+    ],
+    "stdin": false,
+    "subdue": null,
+    "cron": "",
+    "ttl": 0,
+    "timeout": 0,
+    "round_robin": false,
+    "output_metric_format": "",
+    "output_metric_handlers": []
+  }
+}

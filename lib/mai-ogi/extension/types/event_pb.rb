@@ -3,10 +3,10 @@
 
 require 'google/protobuf'
 
-require 'entity_pb'
-require 'check_pb'
-require 'metrics_pb'
-require 'hook_pb'
+require_relative 'entity_pb'
+require_relative 'check_pb'
+require_relative 'metrics_pb'
+require_relative 'hook_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sensu.types.Event" do
     optional :timestamp, :int64, 1

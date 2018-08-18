@@ -1,3 +1,5 @@
+require "mai-ogi"
+
 RSpec.describe MaiOgi do
   it "has a version number" do
     expect(MaiOgi::VERSION).not_to be nil

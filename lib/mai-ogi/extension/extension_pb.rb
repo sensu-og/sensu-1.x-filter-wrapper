@@ -3,7 +3,7 @@
 
 require 'google/protobuf'
 
-require 'types/event_pb'
+require_relative 'types/event_pb'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sensu.rpc.HandleEventRequest" do

@@ -2,7 +2,7 @@
 # Source: extension.proto for package 'sensu.rpc'
 
 require 'grpc'
-require 'extension_pb'
+require_relative 'extension_pb'
 
 module Sensu
   module Rpc
