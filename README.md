@@ -21,6 +21,7 @@ service.
 
 Edit code in the `filter_event` method of lib/mai-ogi/extension-server.rb.
 Further details are provided in the comments of the filter_event method.
+Restart the gRPC service to apply changes.
 
 ### Watch the backend logs
 
