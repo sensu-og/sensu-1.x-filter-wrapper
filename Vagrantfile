@@ -72,6 +72,8 @@ Vagrant.configure("2") do |config|
     sudo service sensu-backend start
     sudo service sensu-agent start
     /usr/bin/sensuctl configure --url http://127.0.0.1:8080  --password P@ssw0rd! --organization default --environment default --username admin -n
+    # start the ruby-grpc handler with nohup: bundle console from /shim dir
     sensuctl extension register ruby-grpc http://127.0.0.1:50051
+    sensuctl create -f /shim/sensu/check.json
   SHELL
 end
