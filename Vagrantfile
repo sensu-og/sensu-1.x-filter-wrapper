@@ -76,6 +76,6 @@ Vagrant.configure("2") do |config|
     bundle install
     /usr/bin/sensuctl configure --url http://127.0.0.1:8080  --password P@ssw0rd! --organization default --environment default --username admin -n
     sensuctl extension register ruby-grpc 127.0.0.1:50051
-    sensuctl create -f /shim/sensu/check.json
+    sensuctl create -f /shim/sensu/resources.json
   SHELL
 end

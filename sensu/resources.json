@@ -1,7 +1,7 @@
 {
   "type": "CheckConfig",
   "spec": {
-    "command": "echo check output && exit 0",
+    "command": "bash -c '[ \"$(($RANDOM % 2))\" == 0 ] && echo -n https://www.google.com/ || echo -n http://unreachable.local'",
     "environment": "default",
     "handlers": [
       "filtered-cat"

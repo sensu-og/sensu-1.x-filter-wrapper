@@ -1,0 +1,12 @@
+{
+ "filters": {
+   "advanced_filter": {
+     "negate": false,
+     "attributes": {
+       "check": {
+         "output": "eval: require 'net/http'; value == nil || '200' == Net::HTTP.get_response(URI.parse(value.to_s)).code rescue false"
+       }
+     }
+   }
+ }
+}
