@@ -20,7 +20,7 @@ which is the path to the 1.x filters json that's being wrapped.
 Example output:
 ```
 expression       :  require 'net/http'; value == nil || '200' == Net::HTTP.get_response(URI.parse(value.to_s)).code rescue false
-evaluated against: sh: 1: arithmetic expression: expecting primary: " % 2"
+evaluated against: http://unreachable.local
 returns          : false
 expression       :  require 'net/http'; value == nil || '200' == Net::HTTP.get_response(URI.parse(value.to_s)).code rescue false
 evaluated against: https://www.google.com/
@@ -50,3 +50,4 @@ gRPC handled check runs every 5 seconds.
   instance will tell you that sensuctl is not configured.
 - No deep merge on event attributes for filters.
 - Filter `negate` attribute is ignored.
+- Filter expression evaluation is NOT ran in a sandbox
