@@ -13,9 +13,10 @@ gRPC service itself is not started automatically.
 vagrant ssh -c 'cd /shim && bundle console /shim/test-filters.json'
 ```
 `bundle console` imports the gem which in turn starts the gRPC service on port
-50051. The gRPC service is defined in [server.rb](lib/mai-ogi/server.rb), and uses handlers
-defined in [extension_server.rb](lib/mai-ogi/extension_server.rb). It takes one command line argument,
-which is the path to the 1.x filters json that's being wrapped.
+50051. The gRPC service is defined in [server.rb](lib/mai-ogi/server.rb), and
+uses handlers defined in
+[extension_server.rb](lib/mai-ogi/extension_server.rb). It takes one command
+line argument, which is the path to the 1.x filters json that's being wrapped.
 
 Example output:
 ```
@@ -45,9 +46,6 @@ gRPC handled check runs every 5 seconds.
 
 ### Known issues
 
-- Despite the fact that `sensuctl configure ...` is ran successfully from the
-  vagrant provisioner, running sensuctl commands interactively on the vagrant
-  instance will tell you that sensuctl is not configured.
 - No deep merge on event attributes for filters.
 - Filter `negate` attribute is ignored.
 - Filter expression evaluation is NOT ran in a sandbox
